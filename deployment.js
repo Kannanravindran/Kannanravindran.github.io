@@ -3,14 +3,14 @@ contracts = {};
 ctrAddresses = {};
 contracts["Sample"] = {
 	interface: [{"constant":false,"inputs":[{"name":"v","type":"uint256"}],"name":"set","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"inputs":[{"name":"v","type":"uint256"}],"type":"constructor"}],
-	address: "0xf1151e1057a1ab61a927fc75624af94cf4d9fac4"
+	address: "0x0bafd17abfe2f8fb9fc69ec7f8f6633b08e17cb0"
 };
 contracts["Sample"].contractClass = web3.eth.contract(contracts["Sample"].interface);
 contracts["Sample"].contract = contracts["Sample"].contractClass.at(contracts["Sample"].address);
 contracts["<Sample - 0>"] = {
 	interface: [{"constant":false,"inputs":[{"name":"v","type":"uint256"}],"name":"set","outputs":[],"type":"function"},{"constant":true,"inputs":[],"name":"get","outputs":[{"name":"","type":"uint256"}],"type":"function"},{"inputs":[{"name":"v","type":"uint256"}],"type":"constructor"}],
-	address: "0xf1151e1057a1ab61a927fc75624af94cf4d9fac4"
+	address: "0x0bafd17abfe2f8fb9fc69ec7f8f6633b08e17cb0"
 };
 contracts["<Sample - 0>"].contractClass = web3.eth.contract(contracts["<Sample - 0>"].interface);
 contracts["<Sample - 0>"].contract = contracts["<Sample - 0>"].contractClass.at(contracts["<Sample - 0>"].address);
-if (!ctrAddresses["Sample"]){ ctrAddresses["Sample"] = [] }ctrAddresses["Sample"].push("0xf1151e1057a1ab61a927fc75624af94cf4d9fac4")
+if (!ctrAddresses["Sample"]){ ctrAddresses["Sample"] = [] }ctrAddresses["Sample"].push("0x0bafd17abfe2f8fb9fc69ec7f8f6633b08e17cb0")
