@@ -1,41 +1,23 @@
-<!doctype>
+<!DOCTYPE html>
 <html>
-<head><script src="deployment.js"></script>
-<script type='text/javascript'>
-
-function get() {
-	var param = document.getElementById('query').value;
-	var res = contracts['Sample'].contract.get();
-	document.getElementById('queryres').innerText = res;
-}
-
-function set() {
-	var key = document.getElementById('key').value;
-	var res = contracts['Sample'].contract.set(key, { from: sender() } );
-}
-	
-function sender()
-{
-	return document.getElementById('sender').value;
-}
-
-</script>
-</head>
-<body bgcolor='#E6E6FA'>
-	<h3>Sample Ratings</h3>
-<div>
-<div>
-Sender:
-	<input type='text' id='sender'>
-</div>
-Store:
-	<input type='number' id='key'>
-	<button onclick='set()'>Save</button>
-</div>
-<div>
-Query:
-	<input value='get' type='button' id='query' onclick='get()' />
-	<div id='queryres'></div>
-</div>
-</body>
+  <head>
+  </head>
+  <body>
+    <script type="text/javascript">
+    setTimeout(function () {
+      function loadDebugger() {
+        var container = document.getElementById('app')
+        console.log(window.remix.ui)
+        /*container.debugger = new window.remix.ui.Debugger()
+        container.debugger.addProvider('INTERNAL')
+        container.debugger.switchProvider('INTERNAL')
+        container.appendChild(container.debugger.render())*/
+      }
+      loadDebugger()
+    }, 5000)
+      
+    </script>
+    <div id="app"></div>
+    <script src="build/app.js"></script>
+  </body>
 </html>
