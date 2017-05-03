@@ -1,70 +1,3 @@
-html { box-sizing: border-box; }
-*, *:before, *:after { box-sizing: inherit; }
-
-body {
-    padding: 0;
-    font-size: 12px;
-    color: #111111;
-    font-weight: normal;
-}
-
-#editor {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: auto;
-    bottom: 0;
-    right: 37em;
-}
-
-.scroller {
-    position: absolute;
-    z-index: 999;
-    text-align: center;
-    cursor: pointer;
-    display: none;
-    padding: 0 0.9em;
-    vertical-align: middle;
-    background-color: rgba(255, 255, 255, 0.8);
-    height: 100%;
-    font-size: 1.3em;
-}
-
-.scroller i {
-    line-height: 3em;
-}
-
-.scroller-right {
-    right: 0;
-}
-
-.scroller-left {
-    left: 0;
-}
-
-#tabs-bar {
-    position: absolute;
-    overflow: hidden;
-    top: 0;
-    left: 200px;
-    right: 3em;
-}
-
-#files {
-    list-style: none;
-    margin: 0;
-    font-size: 15px;
-    height: 2.5em;
-    box-sizing: border-box;
-    line-height: 2em;
-    padding: 0.5em 0 0;
-    position: relative;
-    left: 0;
-    top:0;
-    min-width:3000px;
-    border-bottom: 0 none;
-}
-
 #files .file {
     padding: 0 0.6em;
     box-sizing: border-box;
@@ -76,22 +9,6 @@ body {
     text-align: center;
     vertical-align: middle;
     color: #999;
-}
-
-.toggleRHP {
-    display: block;
-    float: left;
-    margin-top: 0.5em;
-    padding: 0.6em;
-    font-weight: bold;
-    cursor: pointer;
-    color: black;
-}
-
-.toggleRHP {
-    float: right;
-    position: absolute;
-    right: 0;
 }
 
 #files .file.active {
@@ -125,17 +42,6 @@ body {
     display: inline-block;
 }
 
-#righthand-panel {
-    position: absolute;
-    top: 0;
-    width: 37em;
-    max-width: 80vw;
-    right: 0;
-    bottom: 0;
-    overflow: auto;
-    box-sizing: border-box;
-}
-
 #header {
     font-size: 13px;
     height: 100%;
@@ -150,7 +56,6 @@ body {
 
 #header #menu {
     border-bottom: 3px solid #F4F6FF;
-    overflow: hidden;
     height: 2em;
     font-size: 1em;
     padding-top: 0.5em;
@@ -161,6 +66,8 @@ body {
     list-style: none;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: space-between;
 }
 
 #header #options li.active {
@@ -254,12 +161,12 @@ body {
 #publishView button {
     background-color: #C6CFF7;
     font-size: 12px;
-    padding: 0.25em;
     margin-bottom: .5em;
     color: black;
     border:0 none;
     border-radius: 3px;
     width: 8em;
+    height: 20px;
     margin-right: 1em;
     cursor: pointer;
 }
@@ -310,11 +217,6 @@ body {
     border: 0 none;
 }
 
-#formalVerificationInput {
-    height: 4.5em;
-    width: 100%;
-}
-
 .contract.hidesub {
     padding-bottom: 0;
     margin: 0;
@@ -322,18 +224,6 @@ body {
 
 .contract.hidesub > *:not(.title) {
     display: none;
-}
-
-.udapp .contract > .title {
-    cursor:pointer;
-}
-
-.udapp .contract > .title:before {
-    content: "\25BC";
-    opacity: 0.5;
-    margin-right: 0.4em;
-    font-size: 10px;
-    margin-top: 0.2em;
 }
 
 .contract.hidesub > .title:before {
@@ -384,9 +274,10 @@ body {
     word-wrap: break-word;
     cursor: pointer;
     position: relative;
-    margin: 0.5em 0;
-    border-radius: 0.6em;
-    padding: 1em 1.5em;
+    margin: 0.5em 0 1em 0;
+    border-radius: 5px;
+    line-height: 20px;
+    padding: 8px 15px;
 }
 
 .sol.error pre,
@@ -410,40 +301,13 @@ body {
 }
 
 .sol.error {
-    background-color: rgba(255, 0, 0, 0.4);
+    background-color: hsla(0, 100%, 75%, 0.1);
+    border: .2em dotted #FF8080;
 }
 
 .sol.warning {
-    background-color: rgba(210, 202, 36, 0.4);
-}
-
-#ghostbar {
-    width: 1px;
-    background-color: red;
-    opacity: 0.5;
-    position: absolute;
-    cursor: col-resize;
-    z-index: 9999;
-    top: 0;
-    bottom: 0;
-}
-
-#dragbar {
-    background-color: transparent;
-    position: absolute;
-    width: 0.5em;
-    right: -3px;
-    top: 3em;
-    bottom: 0;
-    cursor: col-resize;
-    z-index: 999;
-    border-right: 2px solid #C6CFF7;
-}
-
-#editor .ace-tm .ace_gutter,
-#editor .ace-tm .ace_gutter-active-line,
-#editor .ace-tm .ace_marker-layer .ace_active-line {
-    background-color: rgba(225, 229, 251, 0.5);
+    background-color: hsla(59, 56%, 78%, 0.5);
+    border: .2em dotted #ffbd01;
 }
 
 input[readonly] {
@@ -472,4 +336,70 @@ input[type="file"] {
 
 .ace_gutter-cell.ace_breakpoint{
     background-color: #F77E79;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 6; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 2px 16px;
+    background-color: orange;
+    color: white;
+}
+
+/* Modal Body */
+.modal-body {padding: 2px 16px;}
+
+/* Modal Footer */
+.modal-footer {
+    padding: 2px 16px;
+    background-color: orange;
+    color: white;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+#modal-footer-cancel {
+    margin-left: 1em;
+    cursor: pointer;
+}
+
+#modal-footer-ok {
+    cursor: pointer;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top: -300px; opacity: 0} 
+    to {top: 0; opacity: 1}
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
 }
